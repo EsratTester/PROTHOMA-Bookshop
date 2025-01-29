@@ -1,7 +1,4 @@
-# PROTHOMA-Bookshop
-
-
-# WebAutomationSelenium-Prothoma Bookshop
+# Prothoma Bookshop-WebAutomationSelenium
 
 This is repository of selenium automation testing framework. The website is used https://www.prothoma.com/. This framework is developed using Maven library  for web Automatioin testing.
 

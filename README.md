@@ -39,6 +39,7 @@ This is repository of selenium automation testing framework. The website is used
   https://github.com/EsratTester/PROTHOMA-Bookshop.git
 ```
 3. Import the project into your preferred IDE (Eclipse, IntelliJ IDEA, or Spring Tools).
+4. Run this test.xml 
     
  
 

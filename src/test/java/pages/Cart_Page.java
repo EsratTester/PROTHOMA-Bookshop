@@ -25,7 +25,7 @@ public class Cart_Page {
 
     //Xpath
 
-    @FindBys({@FindBy(xpath = "//body/div[@id='appMain']/div[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/a[1]")
+    @FindBys({@FindBy(xpath = "//a[text()='অধোগামী দিনের পঞ্জিকা']")
 
     })
     WebElement details;
@@ -35,10 +35,17 @@ public class Cart_Page {
     })
     WebElement add_cart;
 
-    @FindBys({@FindBy(xpath = "(//a[@href='#']//img)[2]")
+    @FindBys({@FindBy(xpath = "(//img[@src='https://www.prothoma.com/images/frontend/cart_bag.png'])[1]")
 
     })
     WebElement cart_icon;
+
+
+
+    @FindBys({@FindBy(xpath = "//a[@class='btn btn-primary bag']")     ///
+
+    })
+    WebElement cart;
 
 
 
@@ -87,9 +94,19 @@ public class Cart_Page {
 
 
                         try{
-                            test.info("Please Click Add to Cart Icon");
-                            cart_icon.click();
-                            passCaseWithSC("Click on the Cart Icon","carticon_success");
+                            test.info("Please show Add to Cart Icon");
+                            new Actions(driver).moveToElement(cart_icon).build().perform();
+                            passCaseWithSC("Show  the Cart Icon","carticon_success");
+
+                        try {
+                            test.info("Please Click  Cart Options");
+                            cart.click();
+                            passCaseWithSC("Click on the Cart Options","cart_success");
+
+                            }catch (Exception e){
+                                failCase("Cart Options was not Locate ","cart_success_fail");
+                            }
+
 
                         }catch (Exception e) {
                             failCase("Cart Icon was not Locate ","carticon_success_fail");

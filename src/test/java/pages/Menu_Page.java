@@ -32,7 +32,7 @@ public class Menu_Page {
     })
     WebElement author;
 
-    @FindBys({@FindBy(xpath = "(//li[@class='checkbox'])[40]")
+    @FindBys({@FindBy(xpath = "//label[text()='কবিতা']")
 
     })
     WebElement checkbox;

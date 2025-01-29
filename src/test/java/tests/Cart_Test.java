@@ -21,7 +21,7 @@ public class Cart_Test extends CommonMethods {
 
     @BeforeClass
     public void open_url() throws InterruptedException {
-       // PageDriver.getCurrentDriver().get(url);
+        //PageDriver.getCurrentDriver().get(url);
         sleep();
         extent = ExtentFactory.getInstance();
         parentTest = extent.createTest("<p style=\"color:Green; font-size:14px\"><b>Details</b></p>").assignAuthor("Esrat").assignDevice("Windows");

@@ -23,14 +23,11 @@ This is repository of selenium automation testing framework. The website is used
 
 ## Installing Apache Maven
 
-- Apache Maven
-
 1. Download Apache Maven from the official website.
 2. Extract the archive to your desired location.
 3. Set up M2_HOME and MAVEN_HOME environment variables:
-
-  - Create M2_HOME and point it to the Maven installation directory.
-  - Update the PATH variable to include %M2_HOME%\bin.
+   - Create M2_HOME and point it to the Maven installation directory.
+   - Update the PATH variable to include %M2_HOME%\bin.
 4. Verify Maven installation by running mvn --version in a terminal.
 
  ## Installation Steps

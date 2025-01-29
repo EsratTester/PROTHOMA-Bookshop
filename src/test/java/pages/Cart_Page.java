@@ -10,32 +10,36 @@ import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.Screenshots;
+
 import java.io.IOException;
 import java.time.Duration;
 
 import static basedrivers.BaseDriver.driver;
 
-public class Menu_Page {
+public class Cart_Page {
     ExtentTest test;
-    public Menu_Page(ExtentTest test) {
+    public Cart_Page(ExtentTest test) {
         PageFactory.initElements(PageDriver.getCurrentDriver(), this);
         this.test = test;
     }
 
-    @FindBys({@FindBy(xpath = "(//li[@id='writer'])[1]")
+    //Xpath
+
+    @FindBys({@FindBy(xpath = "//body/div[@id='appMain']/div[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/a[1]")
 
     })
-    WebElement dropdown;
+    WebElement details;
 
-    @FindBys({@FindBy(xpath = "//a[contains(text(),'সৈয়দ শামসুল হক')]")
-
-    })
-    WebElement author;
-
-    @FindBys({@FindBy(xpath = "(//li[@class='checkbox'])[40]")
+    @FindBys({@FindBy(xpath = "//a[@id='viewBuyURL']")
 
     })
-    WebElement checkbox;
+    WebElement add_cart;
+
+    @FindBys({@FindBy(xpath = "(//a[@href='#']//img)[2]")
+
+    })
+    WebElement cart_icon;
+
 
 
 
@@ -68,38 +72,36 @@ public class Menu_Page {
     }
 
 
-    public void menu() throws IOException {
+    public void cart() throws IOException {
         try{
                 WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 
-                test.info("Please click your Writer options");
-                new Actions(driver).moveToElement(dropdown).build().perform();
-                passCaseWithSC("You have successfully click your  Writer from the Menu","writer_click_success");
+                test.info("Please click your Details options");
+                details.click();
+                passCaseWithSC("Click on the Details options","details_click_success");
 
-                try {
-                        test.info("Please select the author Name");
-                        author.click();
-                        passCaseWithSC("You have successfully select the author Name","author_success");
+               try {
+                       test.info("Please Click Add to Cart options");
+                       add_cart.click();
+                       passCaseWithSC("Click on the Add to Cart options","addToCart_success");
 
 
                         try{
-                            test.info("Please click the Checkbox");
-                            Actions actions = new Actions(driver);
-                            actions.moveToElement(checkbox).perform();
-                            checkbox.click();
-                            passCaseWithSC("You Successfully click the checkbox","checkbox_success");
+                            test.info("Please Click Add to Cart Icon");
+                            cart_icon.click();
+                            passCaseWithSC("Click on the Cart Icon","carticon_success");
 
                         }catch (Exception e) {
-                            failCase("Checkbox was not Locate ","checkbox_success_fail");
+                            failCase("Cart Icon was not Locate ","carticon_success_fail");
                         }
 
 
-                } catch (Exception e) {
-                    failCase("Author was not Locate ","author_fail");
+              } catch (Exception e) {
+                    failCase("Add to Cart was not Locate ","addCart_fail");
             }
 
         }catch (Exception e){
-            failCase("Writer was not Locate ","writer_fail");
+            failCase("Details was not Locate ","details_fail");
 
         }
 

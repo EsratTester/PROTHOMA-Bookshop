@@ -51,23 +51,17 @@ public class Visit_Page {
 
 
 
-    public void visit() throws IOException {
-        try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            test.info("Visit Website");
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            String script = "window.scrollTo(0,document.body.scrollHeight);";
-            js.executeScript(script);
-            js.executeScript("window.scrollTo(0,0)");
-            passCaseWithSC("Visit the website is successful","visit_success");
+    public void visit() throws IOException, InterruptedException {
+        test.info("Visit Website");
 
-            } catch (Exception e) {
-                failCase("Visit the website is not successful ", "visit_website_fail");
-            }
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String script = "window.scrollTo(0,document.body.scrollHeight);";
+        js.executeScript(script);
+        Thread.sleep(5000);
+        js.executeScript("window.scrollTo(0,0)");
+        passCaseWithSC("Visit the website is successful", "visit_success");
+
 
     }
-
-
-
 
 }

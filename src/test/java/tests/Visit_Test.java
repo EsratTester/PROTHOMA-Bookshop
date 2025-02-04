@@ -28,7 +28,7 @@ public class Visit_Test extends CommonMethods {
     }
 
     @Test
-    public void prothoma() throws IOException {
+    public void prothoma() throws IOException, InterruptedException {
         childTest = parentTest.createNode("<p style=\"color:Green; font-size:14px\"><b>Visit</b></p>");
         Visit_Page visit_page = new Visit_Page(childTest);
         visit_page.visit();

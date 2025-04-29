@@ -42,10 +42,15 @@ public class Cart_Page {
 
 
 
-    @FindBys({@FindBy(xpath = "//a[@class='btn btn-primary bag']")     ///
+    @FindBys({@FindBy(xpath = "//a[contains(text(),'কার্ট দেখুন')]")     ///
 
     })
     WebElement cart;
+
+    @FindBys({@FindBy(xpath = "(//a[contains(@class,'order-btn-ct')][contains(text(),'অর্ডার দিন')])[1]")     ///
+
+    })
+    WebElement order ;
 
 
 
@@ -82,7 +87,6 @@ public class Cart_Page {
     public void cart() throws IOException {
         try{
                 WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-
                 test.info("Please click your Details options");
                 details.click();
                 passCaseWithSC("Click on the Details options","details_click_success");
@@ -91,8 +95,6 @@ public class Cart_Page {
                        test.info("Please Click Add to Cart options");
                        add_cart.click();
                        passCaseWithSC("Click on the Add to Cart options","addToCart_success");
-
-
                         try{
                             test.info("Please show Add to Cart Icon");
                             new Actions(driver).moveToElement(cart_icon).build().perform();
@@ -103,20 +105,23 @@ public class Cart_Page {
                             cart.click();
                             passCaseWithSC("Click on the Cart Options","cart_success");
 
+                           try {
+                                test.info("Please Click  Order Options");
+                                order.click();
+                                passCaseWithSC("Click on the Cart Options","order_success");
+
+                            }catch (Exception e){
+                                failCase("Cart Options was not Locate ","order_success_fail");
+                            }
                             }catch (Exception e){
                                 failCase("Cart Options was not Locate ","cart_success_fail");
                             }
-
-
                         }catch (Exception e) {
                             failCase("Cart Icon was not Locate ","carticon_success_fail");
                         }
-
-
               } catch (Exception e) {
                     failCase("Add to Cart was not Locate ","addCart_fail");
             }
-
         }catch (Exception e){
             failCase("Details was not Locate ","details_fail");
 
